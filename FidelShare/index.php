@@ -11,7 +11,10 @@ session_start();
 <body>
     <label for="name">User Name</label>
     <input type="text" placeholde="User Name" id="name">
+    <label for="name">User Name</label>
+    <input type="text" placeholde="User Name" id="name">
     
 </body>
 
 </html>
+
