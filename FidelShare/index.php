@@ -9,6 +9,9 @@ session_start();
     <title>FidelShare</title>
 </head>
 <body>
+    <label for="name">User Name</label>
+    <input type="text" placeholde="User Name" id="name">
     
 </body>
+
 </html>
