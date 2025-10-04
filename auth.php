@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +6,6 @@ session_start();
     <title>FidelShare</title>
 </head>
 <body>
-    <label for="">User Name</label>
-    <input type="text">
+    
 </body>
 </html>
