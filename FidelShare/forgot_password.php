@@ -13,17 +13,17 @@ session_start();
     <form action="" method="post">
         <label for="email">Email</label>
         <input type="email" placeholder="Email" id="email" name="email" required>
-        
+        <label for="OTP">OTP Code</label>
+        <input type="OTP" placeholder="One Time Password" id="email" name="otp" required>
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password" name="password" required><br>
         <label for="password">Confirm</label>
         <input type="password" placeholder="Password" id="password" name="password" required>
         
-        <button type="submit">Signin</button>  
-        <a href="index.php">I have an account</a>
+        <button type="Verify">Verify</button>  
     </form>
 </body>
 <?php
-//$conn=mysqli_connect('localhoot','root','','fidelshare');
+mysqli_connect('localhoot','root','','fidelshare');
 ?>
 </html>
