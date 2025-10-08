@@ -18,7 +18,7 @@ session_start();
         <input type="password" placeholder="Password" id="password" name="password" required><br>
         <label for="password">Confirm</label>
         <input type="password" placeholder="Password" id="password" name="password" required>
-        
+        <kucucs></kucucs>
         <button type="submit">Signin</button>  
         <a href="index.php">I have an account</a>
     </form>
