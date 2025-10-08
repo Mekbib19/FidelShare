@@ -21,9 +21,10 @@ session_start();
         
         <a href="register.php">Register</a>
         <a href="forgot_password.php">Forgot Password?</a>
-        <h1>Hello</h1>
+        <h1>Hello world</h1>
     </form>
 </body>
 
 </html>
+
 
