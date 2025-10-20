@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/FidelShare/static/css/main.e6c13ad2.css",
-    "main.js": "/FidelShare/static/js/main.7ea1220c.js",
-    "static/js/453.66dce9f2.chunk.js": "/FidelShare/static/js/453.66dce9f2.chunk.js",
+    "main.css": "/FidelShare/static/css/main.957be964.css",
+    "main.js": "/FidelShare/static/js/main.7a270abb.js",
     "index.html": "/FidelShare/index.html",
-    "main.e6c13ad2.css.map": "/FidelShare/static/css/main.e6c13ad2.css.map",
-    "main.7ea1220c.js.map": "/FidelShare/static/js/main.7ea1220c.js.map",
-    "453.66dce9f2.chunk.js.map": "/FidelShare/static/js/453.66dce9f2.chunk.js.map"
+    "main.957be964.css.map": "/FidelShare/static/css/main.957be964.css.map",
+    "main.7a270abb.js.map": "/FidelShare/static/js/main.7a270abb.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.7ea1220c.js"
+    "static/css/main.957be964.css",
+    "static/js/main.7a270abb.js"
   ]
 }
