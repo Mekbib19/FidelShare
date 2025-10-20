@@ -13,6 +13,9 @@ import NotFound from './components/NotFound';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
 
+// src/main.jsx or src/index.js
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 function App() {
   return (
     <Router>
