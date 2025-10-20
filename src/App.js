@@ -1,53 +1,68 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './components/Login';
 import Header from './components/Header';
-import Home from './components/Home';
-import About from './components/About';
-import Services from './components/Services';
-import Contact from './components/Contact';
-import Products from './components/Products';
-import ProductDetail from './components/ProductDetail';
+import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
-import NotFound from './components/NotFound';
-import ProtectedRoute from './components/ProtectedRoute';
+import Teachers from './components/Teachers';
+import Courses from './components/Courses';
+import Materials from './components/Materials';
+import Ratings from './components/Ratings';
+import Students from './components/Students';
+import Announcements from './components/Announcements';
+import Settings from './components/Settings';
 import './App.css';
 
-// src/main.jsx or src/index.js
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+  const [activeTab, setActiveTab] = useState('dashboard');
+
+  useEffect(() => {
+    // Check if user is logged in from localStorage
+    const savedUser = localStorage.getItem('fidelShareUser');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+    setIsLoggedIn(true);
+    localStorage.setItem('fidelShareUser', JSON.stringify(userData));
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setIsLoggedIn(false);
+    localStorage.removeItem('fidelShareUser');
+  };
+
+  if (!isLoggedIn) {
+    return <Login onLogin={handleLogin} />;
+  }
+
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <main>
-          <Routes>
-            {/* Basic Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-            
-            {/* Nested Routes */}
-            <Route path="/products" element={<Products />}>
-              <Route path=":productId" element={<ProductDetail />} />
-            </Route>
-            
-            {/* Protected Routes */}
-            <Route 
-              path="/dashboard" 
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              } 
-            />
-            
-            {/* 404 Page - MUST BE LAST */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+      <div className="container">
+        <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+        <div className="main-content">
+          <Header user={user} onLogout={handleLogout} />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/teachers" element={<Teachers />} />
+              <Route path="/courses" element={<Courses />} />
+              <Route path="/materials" element={<Materials />} />
+              <Route path="/ratings" element={<Ratings />} />
+              <Route path="/students" element={<Students />} />
+              <Route path="/announcements" element={<Announcements />} />
+              <Route path="/settings" element={<Settings user={user} />} />
+            </Routes>
+          </div>
+        </div>
       </div>
     </Router>
   );
